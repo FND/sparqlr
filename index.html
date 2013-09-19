@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>SPARQLr</title>
+	<link rel="stylesheet" href="extlib/pure.css">
+	<style>
+body {
+	width: 90%;
+	margin: 0 auto;
+}
+
+table,
+form,
+form.pure-form {
+	margin-bottom: 1em;
+}
+
+label {
+	display: block;
+}
+
+textarea {
+	height: 20em;
+}
+
+.primary,
+.pure-button-primary {
+	display: block;
+	width: 90%;
+}
+	</style>
+</head>
+
+<body>
+	<h1>SPARQLr</h1>
+	<form action="#" class="pure-form">
+		<fieldset>
+			<legend>
+				endpoint
+			</legend>
+			<input name="endpoint" class="primary">
+		</fieldset>
+		<fieldset>
+			<legend>query</legend>
+			<textarea name="query" class="primary">
+PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
+
+SELECT DISTINCT ?sbj ?prd ?obj ?label WHERE {
+	?sbj ?prd ?obj
+	OPTIONAL {
+		?sbj skos:prefLabel ?label
+	}
+}
+			</textarea>
+			<label>
+				<input type="checkbox" name="infer">
+				include inferences
+			</label>
+		</fieldset>
+		<input type="submit" class="pure-button pure-button-primary">
+	</form>
+
+	<table id="results"class="pure-table pure-table-striped"></table>
+
+	<script src="extlib/jquery.js"></script>
+	<script src="lib/main.js"></script>
+</body>
+
+</html>
