@@ -48,9 +48,9 @@ textarea {
 PREFIX skos:<http://www.w3.org/2004/02/skos/core#>
 
 SELECT DISTINCT ?sbj ?prd ?obj ?label WHERE {
-	?sbj ?prd ?obj
+	?sbj ?prd ?obj .
 	OPTIONAL {
-		?sbj skos:prefLabel ?label
+		?sbj skos:prefLabel ?label .
 	}
 }
 			</textarea>
